@@ -1,0 +1,6 @@
+{
+  "name": "polymer-redux-study",
+  "short_name": "polymer-redux-study",
+  "start_url": "/",
+  "display": "standalone"
+}

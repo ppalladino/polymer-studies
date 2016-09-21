@@ -1,0 +1,1 @@
+define("navigation-actions",["action-types"],function(t){return{setRoute:function(n){return{type:t.SET_ROUTE,payload:{route:n}}}}});

@@ -1,0 +1,140 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/imd/imd.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="../dal/dal.html">
+
+<link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../my-page-1-panel-1/my-page-1-panel-1.html">
+<link rel="import" href="../my-page-1-panel-2/my-page-1-panel-2.html">
+<link rel="import" href="../my-page-1-panel-3/my-page-1-panel-3.html">
+<link rel="import" href="../my-stringifier/my-stringifier.html">
+
+<dom-module id="my-page-1">
+  <template>
+    <style include="iron-flex iron-flex-alignment">
+      .nav-item:active {
+        outline-color: red;
+      }
+
+      button {
+        margin: 5px;
+      }
+
+      .angries button {
+        background-color: red;
+        color: yellow;
+      }
+      .smilies button {
+        background-color: yellow;
+        color: black;
+      }
+      .frowns button {
+        background-color: blue;
+        color: white;
+      }
+    </style>
+    <h1>page 1</h1>
+
+    <div class="layout horizontal">
+      <div
+          is="my-nav-group"
+
+          class="layout vertical"
+          nav-group-name="1"
+          up-behavior="PREV_NAV_ITEM"
+          down-behavior="NEXT_NAV_ITEM"
+          right-behavior="NEXT_NAV_GROUP"
+          left-behavior="NOOP">
+        <h2>panel 1</h2>
+        <button nav-group="1" class="nav-item">SHOW STUFF</button>
+        <button nav-group="1" class="nav-item">SHOW MORE STUFF</button>
+        <button nav-group="1" class="nav-item">SHOW EVEN MORE STUFF</button>
+        <button nav-group="1" class="nav-item">OK E'NUFF ALREADY</button>
+        <button nav-group="1" class="nav-item" on-click="_handleTestClick">Click Me</button>
+        <button nav-group="1" class="nav-item">:(</button>
+        <button nav-group="1" class="nav-item">:(</button>
+        <button nav-group="1" class="nav-item">:(</button>
+      </div>
+      <div
+          is="my-nav-group"
+          nav-group-name="2"
+          left-wrap-behavior="PREV_NAV_GROUP">
+        <h2>panel 2</h2>
+        <button nav-group="2" class="nav-item">SHOW STUFF</button>
+        <button nav-group="2" class="nav-item">SHOW MORE STUFF</button>
+        <button nav-group="2" class="nav-item">SHOW EVEN MORE STUFF</button>
+        <div is="my-nav-group"
+             class="smilies"
+             nav-group-name="3">
+          <h2>panel 3</h2>
+          <button nav-group="3" class="nav-item">:)</button>
+          <button nav-group="3" class="nav-item">:)</button>
+          <button nav-group="3" class="nav-item">:)</button>
+          <button nav-group="3" class="nav-item">:)</button>
+          <button nav-group="3" class="nav-item">:)</button>
+          <button nav-group="3" class="nav-item">:)</button>
+          <button nav-group="3" class="nav-item">:)</button>
+          <div is="my-nav-group"
+               class="frowns"
+               nav-group-name="4"
+               right-wrap-behavior="NEXT_NAV_GROUP">
+            <h2>panel 4</h2>
+            <button nav-group="4" class="nav-item">:(</button>
+            <button nav-group="4" class="nav-item">:(</button>
+            <button nav-group="4" class="nav-item">:(</button>
+            <button nav-group="4" class="nav-item">:(</button>
+            <button nav-group="4" class="nav-item">:(</button>
+          </div>
+        </div>
+      </div>
+      <div is="my-nav-group"
+           class="angries"
+           nav-group-name="5"
+           left-wrap-behavior="PREV_NAV_GROUP"
+           right-wrap-behavior="NEXT_NAV_GROUP">
+        <h2>panel 5</h2>
+        <button nav-group="5" class="nav-item">x(</button>
+        <button nav-group="5" class="nav-item">x(</button>
+        <button nav-group="5" class="nav-item">x(</button>
+        <button nav-group="5" class="nav-item">x(</button>
+        <button nav-group="5" class="nav-item">x(</button>
+        <div is="my-nav-group"
+             class="smilies"
+             nav-group-name="6"
+             left-wrap-behavior="PREV_NAV_GROUP"
+             right-wrap-behavior="NEXT_NAV_GROUP">
+          <h2>panel 6</h2>
+          <button nav-group="6" class="nav-item">:)</button>
+          <button nav-group="6" class="nav-item">:)</button>
+          <button nav-group="6" class="nav-item">:)</button>
+          <button nav-group="6" class="nav-item">:)</button>
+          <button nav-group="6" class="nav-item">:)</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- <app-route
+      route="{{route}}"
+      pattern="/:panel"
+      data="{{routeData}}"
+      tail="{{routeTail}}">
+    </app-route> -->
+
+    <!-- <my-stringifier label="page-1: route" item="[[route]]"></my-stringifier>
+    <my-stringifier label="page-1: routeData" item="[[routeData]]"></my-stringifier>
+    <my-stringifier label="page-1: routeTail" item="[[routeTail]]"></my-stringifier>
+
+    <my-route-link label="Panel 1" route-prefix="[[route.prefix]]" route-path="panel-1"></my-route-link>
+    <my-route-link label="Panel 2" route-prefix="[[route.prefix]]" route-path="panel-2"></my-route-link>
+    <my-route-link label="Panel 3" route-prefix="[[route.prefix]]" route-path="panel-3"></my-route-link>
+
+    <iron-pages selected="[[routeData.panel]]"
+                attr-for-selected="panel"
+                selected-attribute="active">
+      <my-page-1-panel-1 panel="panel-1" route="[[routeTail]]"></my-page-1-panel-1>
+      <my-page-1-panel-2 panel="panel-2" route="[[routeTail]]"></my-page-1-panel-2>
+      <my-page-1-panel-3 panel="panel-3" route="[[routeTail]]"></my-page-1-panel-3>
+    </iron-pages> -->
+  </template>
+  <script src="my-page-1.js"></script>
+</dom-module>

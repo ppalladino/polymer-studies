@@ -1,0 +1,1 @@
+define("dal",["store-creator","reducers","actions"],function(r,e,t){var n="dev",o={},a=r(n,e,o),c=t.bindActionCreators(a);return{store:a,actions:c}});

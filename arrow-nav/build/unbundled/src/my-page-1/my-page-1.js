@@ -1,0 +1,1 @@
+define("my-page-1",["dal"],function(e){Polymer({is:"my-page-1",properties:{route:Object},ready:function(){},detached:function(){},attached:function(){console.log("my-page-1 attached")}})});

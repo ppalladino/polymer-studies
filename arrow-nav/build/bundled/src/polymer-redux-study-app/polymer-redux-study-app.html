@@ -1,0 +1,40 @@
+<html><head><link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/imd/imd.html">
+<link rel="import" href="../../bower_components/app-route/app-location.html">
+<link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../dal/dal.html">
+<link rel="import" href="../my-page-1/my-page-1.html">
+<link rel="import" href="../my-page-2/my-page-2.html">
+<link rel="import" href="../my-page-3/my-page-3.html">
+<link rel="import" href="../my-stringifier/my-stringifier.html">
+<link rel="import" href="../my-route-link/my-route-link.html">
+<link rel="import" href="../../bower_components/app-route/app-route.html">
+
+
+
+</head><body><dom-module id="polymer-redux-study-app">
+  <template>
+    <app-location route="{{route}}"></app-location>
+    <app-route route="{{route}}" pattern="/:page" data="{{routeData}}" tail="{{routeTail}}">
+    </app-route>
+
+    <h1>App</h1>
+
+    <my-stringifier label="app: route" item="[[route]]"></my-stringifier>
+    <my-stringifier label="app: routeData" item="[[routeData]]"></my-stringifier>
+    <my-stringifier label="app: routeTail" item="[[routeTail]]"></my-stringifier>
+
+    <my-route-link label="Page 1" route-path="/page-1/"></my-route-link>
+    <my-route-link label="Page 2" route-path="/page-2/"></my-route-link>
+    <my-route-link label="Page 3" route-path="/page-3/"></my-route-link>
+
+    <iron-pages selected="[[routeData.page]]" attr-for-selected="page" fallback-selection="page-1">
+      <my-page-1 page="page-1" route="[[routeTail]]"></my-page-1>
+      <my-page-2 page="page-2" route="[[routeTail]]"></my-page-2>
+      <my-page-3 page="page-3" route="[[routeTail]]"></my-page-3>
+    </iron-pages>
+
+  </template>
+  <script src="polymer-redux-study-app.js"></script>
+</dom-module>
+</body></html>

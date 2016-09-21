@@ -1,0 +1,1 @@
+define("navigation-reducer",["action-types"],function(e){function n(n,r){if("undefined"==typeof n)return t;switch(r.type){case e.SET_ROUTE:return _.assign({},n,{route:r.payload.route});default:return n}}var t={route:null};return n});

@@ -1,0 +1,1 @@
+define("reducers",["navigation-reducer"],function(e){return Redux.combineReducers({route:e})});

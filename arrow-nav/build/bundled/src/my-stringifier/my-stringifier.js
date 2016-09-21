@@ -1,0 +1,1 @@
+define("my-stringifier",[],function(){Polymer({is:"my-stringifier",properties:{label:String,item:{type:Object,value:""},stringified:{type:String,computed:"computeStringified(item)"}},computeStringified:function(i){return JSON.stringify(i)}})});

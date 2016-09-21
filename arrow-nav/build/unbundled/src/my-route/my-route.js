@@ -1,0 +1,1 @@
+define("my-route",[],function(){Polymer({is:"my-route",properties:{route:Object},observers:["_routeChanged(route)"],_routeChanged:function(){console.log("MY ROUTE CHSNGD: ",this.route,this.data)},ready:function(){},detached:function(){}})});

@@ -1,0 +1,1 @@
+define("my-page-1-panel-3",["dal"],function(e){Polymer({is:"my-page-1-panel-3",properties:{},ready:function(){},detached:function(){}})});

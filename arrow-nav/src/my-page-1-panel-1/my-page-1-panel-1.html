@@ -1,0 +1,46 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/imd/imd.html">
+<link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../dal/dal.html">
+<link rel="import" href="../my-stringifier/my-stringifier.html">
+
+<dom-module id="my-page-1-panel-1">
+  <template>
+    <h1>panel 1</h1>
+
+    <app-route
+      route="{{route}}"
+      pattern="/:dialog"
+      data="{{routeData}}"
+      tail="{{routeTail}}">
+    </app-route>
+
+    <my-stringifier label="page-1-panel-1: route" item="[[route]]"></my-stringifier>
+    <my-stringifier label="page-1-panel-1: routeData" item="[[routeData]]"></my-stringifier>
+    <my-stringifier label="page-1-panel-1: routeTail" item="[[routeTail]]"></my-stringifier>
+
+    <my-route-link label="Show Dialog 1" route-path="/page-1/panel-1/dialog-1"></my-route-link>
+    <my-route-link label="Show Dialog 2" route-path="/page-1/panel-1/dialog-2"></my-route-link>
+
+    <paper-dialog id="dialog1" on-iron-overlay-closed="_onDialogClosed">
+      <h2>Dialog 1</h2>
+      <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Maecenas faucibus mollis interdum. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec sed odio dui.</p>
+      <div class="buttons">
+        <paper-button dialog-dismiss>Cancel</paper-button>
+        <paper-button dialog-confirm autofocus>Accept</paper-button>
+      </div>
+    </paper-dialog>
+
+    <paper-dialog id="dialog2" on-iron-overlay-closed="_onDialogClosed">
+      <h2>Dialog 2</h2>
+      <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Maecenas faucibus mollis interdum. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec sed odio dui.</p>
+      <div class="buttons">
+        <paper-button dialog-dismiss>Cancel</paper-button>
+        <paper-button dialog-confirm autofocus>Accept</paper-button>
+      </div>
+    </paper-dialog>
+
+  </template>
+  <script src="my-page-1-panel-1.js"></script>
+</dom-module>

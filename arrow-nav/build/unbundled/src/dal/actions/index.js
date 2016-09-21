@@ -1,0 +1,1 @@
+define("actions",["navigation-actions"],function(n){function i(i){return{navigation:Redux.bindActionCreators(n,i.dispatch)}}return{bindActionCreators:i}});
